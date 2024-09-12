@@ -13,6 +13,27 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  String result = '0';
+
+  void calculate(String key) {
+    setState(() {
+      switch (key) {
+        case 'AC':
+          result = '0';
+          break;
+        case 'Back':
+          if (result.length >= 2) {
+            result = result.substring(0, result.length - 1);
+          }
+          break;
+        default:
+          if ('0123456789+-/x,'.contains(key)) {
+            result += key;
+          }
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -45,12 +66,12 @@ class _MyAppState extends State<MyApp> {
                       padding: const EdgeInsets.all(20.0),
                       child: Column(
                         children: [
-                          const Row(
+                          Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               Text(
-                                '0',
-                                style: TextStyle(
+                                result,
+                                style: const TextStyle(
                                   fontSize: 100,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -64,6 +85,7 @@ class _MyAppState extends State<MyApp> {
                                 text: 'AC',
                                 onPressed: () {
                                   print('AC');
+                                  calculate('AC');
                                 },
                                 color: Colors.white,
                               ),
@@ -71,6 +93,7 @@ class _MyAppState extends State<MyApp> {
                                 text: 'Back',
                                 onPressed: () {
                                   print('Back');
+                                  calculate('Back');
                                 },
                                 color: Colors.orange,
                               ),
@@ -86,6 +109,7 @@ class _MyAppState extends State<MyApp> {
                                 text: '7',
                                 onPressed: () {
                                   print('7');
+                                  calculate('7');
                                 },
                                 color: Colors.white,
                               ),
@@ -93,6 +117,7 @@ class _MyAppState extends State<MyApp> {
                                 text: '8',
                                 onPressed: () {
                                   print('8');
+                                  calculate('8');
                                 },
                                 color: Colors.white,
                               ),
@@ -100,6 +125,7 @@ class _MyAppState extends State<MyApp> {
                                 text: '9',
                                 onPressed: () {
                                   print('9');
+                                  calculate('9');
                                 },
                                 color: Colors.white,
                               ),
@@ -107,6 +133,7 @@ class _MyAppState extends State<MyApp> {
                                 text: '/',
                                 onPressed: () {
                                   print('/');
+                                  calculate('/');
                                 },
                                 color: Colors.orange,
                               ),
@@ -122,6 +149,7 @@ class _MyAppState extends State<MyApp> {
                                 text: '4',
                                 onPressed: () {
                                   print('4');
+                                  calculate('4');
                                 },
                                 color: Colors.white,
                               ),
@@ -129,6 +157,7 @@ class _MyAppState extends State<MyApp> {
                                 text: '5',
                                 onPressed: () {
                                   print('5');
+                                  calculate('5');
                                 },
                                 color: Colors.white,
                               ),
@@ -136,13 +165,15 @@ class _MyAppState extends State<MyApp> {
                                 text: '6',
                                 onPressed: () {
                                   print('6');
+                                  calculate('6');
                                 },
                                 color: Colors.white,
                               ),
                               CalcButton(
                                 text: 'X',
                                 onPressed: () {
-                                  print('X');
+                                  print('x');
+                                  calculate('x');
                                 },
                                 color: Colors.orange,
                               ),
@@ -158,6 +189,7 @@ class _MyAppState extends State<MyApp> {
                                 text: '1',
                                 onPressed: () {
                                   print('1');
+                                  calculate('1');
                                 },
                                 color: Colors.white,
                               ),
@@ -165,6 +197,7 @@ class _MyAppState extends State<MyApp> {
                                 text: '2',
                                 onPressed: () {
                                   print('2');
+                                  calculate('2');
                                 },
                                 color: Colors.white,
                               ),
@@ -172,6 +205,7 @@ class _MyAppState extends State<MyApp> {
                                 text: '3',
                                 onPressed: () {
                                   print('3');
+                                  calculate('3');
                                 },
                                 color: Colors.white,
                               ),
@@ -179,6 +213,7 @@ class _MyAppState extends State<MyApp> {
                                 text: '-',
                                 onPressed: () {
                                   print('-');
+                                  calculate('-');
                                 },
                                 color: Colors.orange,
                               ),
@@ -194,6 +229,7 @@ class _MyAppState extends State<MyApp> {
                                 text: '0',
                                 onPressed: () {
                                   print('0');
+                                  calculate('0');
                                 },
                                 color: Colors.white,
                               ),
@@ -201,6 +237,7 @@ class _MyAppState extends State<MyApp> {
                                 text: ',',
                                 onPressed: () {
                                   print(',');
+                                  calculate(',');
                                 },
                                 color: Colors.white,
                               ),
@@ -215,6 +252,7 @@ class _MyAppState extends State<MyApp> {
                                 text: '+',
                                 onPressed: () {
                                   print('+');
+                                  calculate('+');
                                 },
                                 color: Colors.orange,
                               ),
